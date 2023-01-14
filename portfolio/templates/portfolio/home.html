@@ -1,0 +1,55 @@
+    {% extends 'portfolio/base.html' %}
+
+    {% block content %}
+
+    {% load static %}
+
+    <div class="row justify-content-center mb-3">
+        <div class="col-md-9 text-center">
+            <h1>Welcome to Orsy's Portfolio</h1>
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center my-3">
+        <div class="col-5">
+            <img src="{% static 'portfolio/me.jpg' %}" class="center">
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center mb-3">
+        <div class="col-md-9 text-center">
+          <h1 id="hometext" class="font-weight-bold">Orsy Ramos is Commander-in-Chief at @Deep and lives in New York 😬</h1>
+        </div>
+    </div>
+
+
+      <h2 class="mt-5">Portfolio Projects</h2>
+      <hr>
+
+    <div class="row">
+            {% for project in projects %}
+            <div class="col-lg-4 col-md-6"> 
+        
+
+                <a href="{% url 'project_detail' project.id %}">    
+                <h3>{{ project.title }}</h3>
+                </a>
+                    <img src ="{{ project.image.url }}" height="400">
+                    <br>
+                    <br>
+                    <p>{{ project.description|truncatechars:200 }}</p>
+                    
+
+                    <!-- {% if project.url %}
+                        <a href="{{ project.url }}">Link</a>
+                    {% endif %} -->
+            </div>
+            {% endfor %}
+    </div>
+
+    {% endblock %}
+
+
+

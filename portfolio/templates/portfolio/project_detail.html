@@ -1,0 +1,24 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+
+
+<br>
+<h1 class="centerText">{{ project.title }}</h1>
+<br>
+<p class="centerText">{{ project.description }}</p>
+<br>
+<img src ="{{ project.image.url }}" class="center">
+<br>
+    {% if project.url %}
+        <a href="{{ project.url }}" class="center">Link</a>
+    {% endif %} 
+
+
+    {% if project.image_2 %}
+<img src ="{{ project.image_2.url }}" class="center">
+    {% endif %}    
+<br>
+
+
+{% endblock %}
